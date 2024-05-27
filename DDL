@@ -1,0 +1,6 @@
+CREATE TABLE Administrator (userName varchar(255) NOT NULL UNIQUE, ID int(11) NOT NULL AUTO_INCREMENT, Password varchar(255) NOT NULL, Name varchar(255) NOT NULL, PRIMARY KEY (ID), INDEX (ID));
+CREATE TABLE branch (location varchar(255) NOT NULL, ID int(11) NOT NULL AUTO_INCREMENT, adminID int(11), PRIMARY KEY (ID), INDEX (ID));
+CREATE TABLE Item (name varchar(255) NOT NULL, ID int(11) NOT NULL AUTO_INCREMENT, type varchar(255) NOT NULL, price double NOT NULL, branchID int(11), PRIMARY KEY (ID), INDEX (ID));
+CREATE TABLE Question (Title varchar(255) NOT NULL, ID int(11) NOT NULL AUTO_INCREMENT, userName varchar(255) NOT NULL, userPhoneNumber int(10) NOT NULL UNIQUE, PRIMARY KEY (ID), INDEX (ID));
+ALTER TABLE Item ADD CONSTRAINT FKItem148047 FOREIGN KEY (branchID) REFERENCES branch (ID);
+ALTER TABLE branch ADD CONSTRAINT FKbranch15206 FOREIGN KEY (adminID) REFERENCES Administrator (ID);
